@@ -1,4 +1,5 @@
 import praw
+import data_analysis
 
 if __name__ == '__main__':
     try:
@@ -11,7 +12,7 @@ if __name__ == '__main__':
         )
 
         subreddit = reddit.subreddit('recipes')
-        print(subreddit.display_name)
+        
 
     except Exception as e:
         print(e)
