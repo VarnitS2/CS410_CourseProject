@@ -13,7 +13,6 @@ export interface RecipeListItem {
   author: string;
   createdUTC: string;
   imageURL: string;
-  permalink: string;
 }
 
 const HomeView = () => {
@@ -29,7 +28,7 @@ const HomeView = () => {
 
   useEffect(() => {
     getTopRecipesToday();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getTopRecipesToday = () => {
@@ -92,7 +91,7 @@ const HomeView = () => {
     setNoSearchFlag(false);
     setNoResultsFlag(false);
     setErrorFlag(false);
-  }
+  };
 
   const listItemClicked = (recipe: RecipeListItem) => {
     // Navigate to recipe detail view
@@ -132,13 +131,21 @@ const HomeView = () => {
             <div className="landing__list-empty">No results</div>
           ) : noSearchFlag ? (
             topRecipesToday.map((recipe) => (
-              <li key={recipe.id} className="landing__list-item-container" onClick={() => listItemClicked(recipe)}>
+              <li
+                key={recipe.id}
+                className="landing__list-item-container"
+                onClick={() => listItemClicked(recipe)}
+              >
                 <HomeListItem recipe={recipe} />
               </li>
             ))
           ) : (
             searchResults.map((recipe) => (
-              <li key={recipe.id} className="landing__list-item-container" onClick={() => listItemClicked(recipe)}>
+              <li
+                key={recipe.id}
+                className="landing__list-item-container"
+                onClick={() => listItemClicked(recipe)}
+              >
                 <HomeListItem recipe={recipe} />
               </li>
             ))

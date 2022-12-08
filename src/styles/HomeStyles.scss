@@ -50,9 +50,9 @@
 .landing__list {
   width: 75%;
   height: 100%;
-//   background-color: #25262b;
-  border: 1px solid #373a40;
-  border-radius: 4px;
+  //   background-color: #25262b;
+//   border: 1px solid #373a40;
+//   border-radius: 4px;
   padding-inline-start: 0px;
   margin-top: 0px;
   margin-block-end: 0px;
@@ -63,7 +63,9 @@
 .landing__list-empty {
   width: 100%;
   padding: 15px 25px 15px 25px;
-//   background-color: #25262b;
+  //   background-color: #25262b;
+  border: 1px solid #373a40;
+  border-radius: 4px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -71,5 +73,7 @@
 }
 
 .landing__list-item-container {
-
+  padding: 10px;
+  border: 1px solid #373a40;
+  border-radius: 10px;
 }
