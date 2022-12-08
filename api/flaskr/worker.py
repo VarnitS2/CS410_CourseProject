@@ -49,11 +49,14 @@ def get_top_today():
     if request.method == 'GET':
         try:
             # TODO
+            # initialize message to return
             mess = []
 
+            # create list of top Submissions this week
             top_submissions_weekly = [
                 submission for submission in subreddit.top(time_filter='week')]
 
+            # create dictionary with Submission attributes for each submission in list 'mess'
             for submission in top_submissions_weekly:
                 mess.append({
                     'id': submission.id,
@@ -62,7 +65,6 @@ def get_top_today():
                     'createdUTC': submission.created_utc,
                     'imageURL': submission.url
                 })
-            print(mess)
 
             return jsonify(status=200, message=mess)
 
@@ -76,11 +78,32 @@ def get_top_today():
 def search():
     if request.method == 'POST':
         try:
-            search_term = request.get_json()['search_term']
-
             # TODO
+            mess = []
 
-            return jsonify(status=200, message=[])
+            search_term = request.get_json()['search_term']
+            search_query = search_term.split()
+
+            for submission in top_submissions_all_time:
+                score = 0
+                title = submission.title
+                for word in search_query:
+                    if word in title:
+                        score = score + 1
+                
+                if score > 0:
+                    mess.append({
+                    'id': submission.id,
+                    'title': submission.title,
+                    'author': submission.author.name,
+                    'createdUTC': submission.created_utc,
+                    'imageURL': submission.url,
+                    'score': score,
+                    })
+            
+            mess = sorted(mess, key=lambda message: message['score'], reverse=True)
+
+            return jsonify(status=200, message=mess)
 
         except Exception as e:
             return jsonify(status=500, message=e)

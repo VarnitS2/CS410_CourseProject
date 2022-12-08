@@ -1,3 +1,10 @@
 # GET subreddit name
-GET http://127.0.0.1:5000/api/gettoptoday HTTP/1.1
+# GET http://127.0.0.1:5000/api/gettopweekly HTTP/1.1
+# content-type: application/json
+
+POST http://127.0.0.1:5000/api/search HTTP/1.1
 content-type: application/json
+
+{
+    "search_term": "Pasta"
+}
