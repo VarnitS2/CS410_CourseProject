@@ -1,20 +1,8 @@
-.landing-container {
-  display: flex;
-}
-
 .landing {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.landing-blur {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  filter: blur(10px);
 }
 
 .landing__title-container {
@@ -68,6 +56,7 @@
   padding-inline-start: 0px;
   margin-top: 0px;
   margin-block-end: 0px;
+  list-style-type: none;
   //   overflow-y: scroll;
 }
 
@@ -79,4 +68,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.landing__list-item-container {
+
 }

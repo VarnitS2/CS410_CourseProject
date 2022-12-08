@@ -1,0 +1,30 @@
+.item-container {
+  width: 100%;
+  // height: ;
+  display: flex;
+}
+
+.item__image-container {
+  width: 20%;
+  height: 100%;
+}
+
+.item__image {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #5a5d63;
+  border-radius: 10px;
+  margin: 25px;
+}
+
+.item__info-container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item__title {
+  font-size: 28px;
+  font-weight: 700;
+}
