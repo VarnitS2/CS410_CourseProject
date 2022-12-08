@@ -29,9 +29,8 @@ recipe search list return structure:
     'id': submission.id,
     'title': submission.title,
     'author': submission.author,
-    'created_utc': submission.created_utc,
-    'image_url': submission.url,
-    'permalink': submission.permalink
+    'createdUTC': submission.created_utc,
+    'imageURL': submission.url,
 }]
 
 recipe detail return structure:
@@ -43,15 +42,29 @@ recipe detail return structure:
 }
 '''
 
-# Get list of top recipes of today
+# Get list of top recipes of the week
 # Result used as placeholder data for no search parameter
 @bp.route('/gettoptoday', methods=['GET'])
 def get_top_today():
     if request.method == 'GET':
         try:
             # TODO
+            mess = []
 
-            return jsonify(status=200, message=[])
+            top_submissions_today = [
+                submission for submission in subreddit.top(time_filter='week')]
+
+            for submission in top_submissions_today:
+                mess.append({
+                    'id': submission.id,
+                    'title': submission.title,
+                    'author': submission.author.name,
+                    'createdUTC': submission.created_utc,
+                    'imageURL': submission.url
+                })
+            print(mess)
+
+            return jsonify(status=200, message=mess)
 
         except Exception as e:
             return jsonify(status=500, message=e)
