@@ -1,10 +1,10 @@
-# Team EVO - Where's My Project? 
+# **Team EVO - Where's My Project?**
 
 Recommend recipes from the subreddit `r/recipes` based on user input.
 
-### Install Backend Dependencies
+### **Install Backend Dependencies**
 
-This app uses a virtual environment to manage dependencies. Run the following commands to setup the backend:
+This app uses a `python3` virtual environment to manage backend dependencies. Run the following commands to setup the backend:
 
 ```
 $ cd api
@@ -13,16 +13,37 @@ $ . venv/bin/activate
 $ pip install -r requirements.txt
 ```
 
-## Available Scripts
+**On Windows:**
 
-In the project directory, you can run:
+```
+> cd api
+> py -3 -m venv venv
+> venv\Scripts\activate
+> pip install -r requirements.txt
+```
 
-### `npm run start-api`
+### **Install Frontend Dependencies**
 
-Runs the backend.\
-Connects to PRAW and serves data to the frontend.
+This app uses `npm` to manage frontend dependencies. Run the following command to setup the frontend:
+
+```
+$ npm i
+```
+
+## **Available Scripts**
+
+To start the app, run the following commands in the project directory:
+
+### `npm run start-api` 
+
+**On Windows:**
+
+### `npm run start-api-win`
+
+> Runs the backend.\
+> Connects to PRAW and serves data to the frontend.
 
 ### `npm start`
 
-Runs the frontend.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Runs the frontend.\
+> Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
