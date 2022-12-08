@@ -1,4 +1,4 @@
-# **Team EVO - Where's My Project?**
+# **Team EVO - Where's My Recipe?**
 
 Recommend recipes from the subreddit `r/recipes` based on user input.
 
