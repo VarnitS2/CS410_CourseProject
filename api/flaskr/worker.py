@@ -44,17 +44,17 @@ recipe detail return structure:
 
 # Get list of top recipes of the week
 # Result used as placeholder data for no search parameter
-@bp.route('/gettoptoday', methods=['GET'])
+@bp.route('/gettopweekly', methods=['GET'])
 def get_top_today():
     if request.method == 'GET':
         try:
             # TODO
             mess = []
 
-            top_submissions_today = [
+            top_submissions_weekly = [
                 submission for submission in subreddit.top(time_filter='week')]
 
-            for submission in top_submissions_today:
+            for submission in top_submissions_weekly:
                 mess.append({
                     'id': submission.id,
                     'title': submission.title,
