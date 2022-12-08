@@ -49,6 +49,8 @@ recipe detail return structure:
 def get_top_today():
     if request.method == 'GET':
         try:
+            # TODO
+
             return jsonify(status=200, message=[])
 
         except Exception as e:
@@ -61,6 +63,10 @@ def get_top_today():
 def search():
     if request.method == 'POST':
         try:
+            search_term = request.get_json()['search_term']
+
+            # TODO
+
             return jsonify(status=200, message=[])
 
         except Exception as e:
@@ -73,6 +79,10 @@ def search():
 def get_recipe():
     if request.method == 'POST':
         try:
+            submission_id = request.get_json()['submission_id']
+
+            # TODO
+
             return jsonify(status=200, message={})
 
         except Exception as e:
