@@ -49,7 +49,6 @@ recipe detail return structure:
 def get_top_all():
     if request.method == 'GET':
         try:
-            # TODO
             # initialize message to return
             mess = []
 
@@ -77,7 +76,6 @@ def get_top_all():
 def search():
     if request.method == 'POST':
         try:
-            # TODO
             mess = []
 
             search_query = request.get_json()['search_term'].split(' ')
@@ -120,7 +118,6 @@ def get_recipe():
         try:
             submission_id = request.get_json()['submission_id']
 
-            # TODO
             mess = {}
             for submission in top_submissions_all_time:
                 if submission_id == submission.id:
