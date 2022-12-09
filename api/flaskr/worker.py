@@ -29,6 +29,7 @@ recipe search list return structure:
     'id': submission.id,
     'title': submission.title,
     'author': submission.author,
+    'upvotes': submission.score,
     'createdUTC': submission.created_utc,
     'imageURL': submission.url,
 }]
@@ -63,6 +64,7 @@ def get_top_weekly():
                         'id': submission.id,
                         'title': submission.title,
                         'author': submission.author.name,
+                        'upvotes': submission.score,
                         'createdUTC': submission.created_utc,
                         'imageURL': submission.url
                     })
@@ -99,6 +101,7 @@ def search():
                             'id': submission.id,
                             'title': submission.title,
                             'author': submission.author.name,
+                            'upvotes': submission.score,
                             'createdUTC': submission.created_utc,
                             'imageURL': submission.url,
                             'score': score,
