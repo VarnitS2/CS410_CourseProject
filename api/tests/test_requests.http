@@ -2,9 +2,16 @@
 # GET http://127.0.0.1:5000/api/gettopweekly HTTP/1.1
 # content-type: application/json
 
-POST http://127.0.0.1:5000/api/search HTTP/1.1
+# POST http://127.0.0.1:5000/api/search HTTP/1.1
+# content-type: application/json
+
+# {
+#     "search_term": "Pasta"
+# }
+
+POST http://127.0.0.1:5000/api/getrecipe HTTP/1.1
 content-type: application/json
 
 {
-    "search_term": "Pasta"
+    "submission_id": "k3x0th"
 }

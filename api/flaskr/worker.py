@@ -100,7 +100,7 @@ def search():
                     'imageURL': submission.url,
                     'score': score,
                     })
-            
+
             mess = sorted(mess, key=lambda message: message['score'], reverse=True)
 
             return jsonify(status=200, message=mess)
@@ -118,8 +118,21 @@ def get_recipe():
             submission_id = request.get_json()['submission_id']
 
             # TODO
+            mess = {}
+            for submission in top_submissions_all_time:
+                if submission_id == submission.id:
+                    user = submission.author.name
+                    comments = submission.comments
+                    for comment in comments:
+                        if comment.is_submitter:
+                            mess = {
+                                'id': comment.id,
+                                'body': comment.body,
+                                'author': comment.author.name,
+                                'created_utc': comment.created_utc,
+                            }
 
-            return jsonify(status=200, message={})
+            return jsonify(status=200, message=mess)
 
         except Exception as e:
             return jsonify(status=500, message=e)
