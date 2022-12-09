@@ -159,7 +159,7 @@ const HomeView = () => {
   return (
     <div className="landing-container">
       {showDetailFlag ? (
-        <div className="landing__detail-overlay">
+        <div>
           <RecipeDetailView
             recipeSubmission={selectedRecipeSubmission}
             recipeDetail={selectedRecipeDetail}

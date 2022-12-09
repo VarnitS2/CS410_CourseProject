@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { RecipeListItem } from "../views/HomeView";
 import { Code } from "@mantine/core";
 

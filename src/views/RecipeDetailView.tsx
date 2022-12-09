@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import { IconX } from "@tabler/icons";
 import { Code } from "@mantine/core";
