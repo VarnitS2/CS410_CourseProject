@@ -32,3 +32,11 @@ To start the app, run the following commands in the project directory in two sep
 
 > Runs the frontend.\
 > Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## **Documentation**
+
+Check out `Documentation.md` in the root directory of this project for the complete documentation.
+
+## **Video Presentation**
+
+The video presentation is uploaded to Google Drive [here](https://drive.google.com/file/d/1bhyCsStemIqkxm7VCFk8_lvc2Crrs1SW/view?usp=sharing).

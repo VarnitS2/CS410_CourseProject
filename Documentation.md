@@ -12,6 +12,8 @@ the search engine. POST and GET requests were used to communicate data between t
 
 ## Installation
 
+To run this application you must clone this repository and perform the following steps:
+
 ### Install Backend Dependencies
 
 This app uses `pip` to manage backend dependencies. `pip` is bundled with `python`. Download for your platform from [here](https://www.python.org/downloads/). Once `pip` is installed, run the following commands in the project directory to setup the backend:
