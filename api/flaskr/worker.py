@@ -45,7 +45,7 @@ recipe detail return structure:
 # Get list of top recipes of the week
 # Result used as placeholder data for no search parameter
 @bp.route('/gettopweekly', methods=['GET'])
-def get_top_today():
+def get_top_weekly():
     if request.method == 'GET':
         try:
             # TODO
@@ -58,14 +58,14 @@ def get_top_today():
 
             # create dictionary with Submission attributes for each submission in list 'mess'
             for submission in top_submissions_weekly:
-                mess.append({
-                    'id': submission.id,
-                    'title': submission.title,
-                    'author': submission.author.name,
-                    'upvotes': submission.score,
-                    'createdUTC': submission.created_utc,
-                    'imageURL': submission.url
-                })
+                if not submission.is_self:
+                    mess.append({
+                        'id': submission.id,
+                        'title': submission.title,
+                        'author': submission.author.name,
+                        'createdUTC': submission.created_utc,
+                        'imageURL': submission.url
+                    })
 
             return jsonify(status=200, message=mess)
 
@@ -82,28 +82,30 @@ def search():
             # TODO
             mess = []
 
-            search_term = request.get_json()['search_term']
-            search_query = search_term.split()
+            search_query = request.get_json()['search_term'].split(' ')
 
             for submission in top_submissions_all_time:
-                score = 0
-                title = submission.title
-                for word in search_query:
-                    if word in title:
-                        score = score + 1
-                
-                if score > 0:
-                    mess.append({
-                    'id': submission.id,
-                    'title': submission.title,
-                    'author': submission.author.name,
-                    'upvotes': submission.score,
-                    'createdUTC': submission.created_utc,
-                    'imageURL': submission.url,
-                    'score': score,
-                    })
+                # Filter out meaningless data
+                if not submission.is_self and not submission.author == None and 'i.redd.it' in str(submission.url):
+                    score = 0
+                    title = str(submission.title).lower()
 
-            mess = sorted(mess, key=lambda message: message['score'], reverse=True)
+                    for word in search_query:
+                        if word in title:
+                            score += 1
+
+                    if score > 0:
+                        mess.append({
+                            'id': submission.id,
+                            'title': submission.title,
+                            'author': submission.author.name,
+                            'createdUTC': submission.created_utc,
+                            'imageURL': submission.url,
+                            'score': score,
+                        })
+
+            mess = sorted(
+                mess, key=lambda message: message['score'], reverse=True)
 
             return jsonify(status=200, message=mess)
 
