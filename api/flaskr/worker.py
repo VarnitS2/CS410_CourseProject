@@ -43,23 +43,19 @@ recipe detail return structure:
 }
 '''
 
-# Get list of top recipes of the week
+# Get list of top 25 recipes of all time
 # Result used as placeholder data for no search parameter
-@bp.route('/gettopweekly', methods=['GET'])
-def get_top_weekly():
+@bp.route('/gettopall', methods=['GET'])
+def get_top_all():
     if request.method == 'GET':
         try:
             # TODO
             # initialize message to return
             mess = []
 
-            # create list of top Submissions this week
-            top_submissions_weekly = [
-                submission for submission in subreddit.top(time_filter='week')]
-
             # create dictionary with Submission attributes for each submission in list 'mess'
-            for submission in top_submissions_weekly:
-                if not submission.is_self:
+            for submission in top_submissions_all_time[:25]:
+                if not submission.is_self and not submission.author == None and 'i.redd.it' in str(submission.url):
                     mess.append({
                         'id': submission.id,
                         'title': submission.title,
@@ -128,7 +124,6 @@ def get_recipe():
             mess = {}
             for submission in top_submissions_all_time:
                 if submission_id == submission.id:
-                    user = submission.author.name
                     comments = submission.comments
                     for comment in comments:
                         if comment.is_submitter:
@@ -136,7 +131,7 @@ def get_recipe():
                                 'id': comment.id,
                                 'body': comment.body,
                                 'author': comment.author.name,
-                                'created_utc': comment.created_utc,
+                                'createdUTC': comment.created_utc,
                             }
 
             return jsonify(status=200, message=mess)
