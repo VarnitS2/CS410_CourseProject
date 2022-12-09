@@ -15,6 +15,13 @@ export interface RecipeListItem {
   imageURL: string;
 }
 
+export interface RecipeDetailItem {
+  id: number;
+  body: string;
+  author: string;
+  createdUTC: number;
+}
+
 const HomeView = () => {
   const navigate = useNavigate();
 
@@ -63,7 +70,7 @@ const HomeView = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        search_term: searchText,
+        search_term: searchText.toLowerCase(),
       }),
     };
 
@@ -110,7 +117,7 @@ const HomeView = () => {
   return (
     <div className="landing">
       <div className="landing__title-container">
-        <div>Where's My Recipe?</div>
+        <div className="landing__title-hover">Where's My Recipe?</div>
       </div>
 
       <div className="landing__description">
