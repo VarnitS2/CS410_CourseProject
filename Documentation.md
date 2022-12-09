@@ -14,7 +14,7 @@ the search engine. POST and GET requests were used to communicate data between t
 
 ### Install Backend Dependencies
 
-This app uses `pip` to manage backend dependencies. `pip` is bundled with `python`. Download for your platform from [here](https://www.python.org/downloads/). Once `pip` is installed, run the following commands to setup the backend:
+This app uses `pip` to manage backend dependencies. `pip` is bundled with `python`. Download for your platform from [here](https://www.python.org/downloads/). Once `pip` is installed, run the following commands in the project directory to setup the backend:
 
 ```
 $ cd api
@@ -23,7 +23,7 @@ $ pip install -r requirements.txt
 
 ### Install Frontend Dependencies
 
-This app uses `npm` to manage frontend dependencies. Download for your platform from [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once `npm` is installed, run the following command to setup the frontend:
+This app uses `npm` to manage frontend dependencies. Download for your platform from [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once `npm` is installed, run the following command in the project directory to setup the frontend:
 
 ```
 $ npm i
