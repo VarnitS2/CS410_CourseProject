@@ -4,41 +4,26 @@ Recommend recipes from the subreddit `r/recipes` based on user input.
 
 ### **Install Backend Dependencies**
 
-This app uses a `python3` virtual environment to manage backend dependencies. Run the following commands to setup the backend:
+This app uses `pip` to manage backend dependencies. `pip` is bundled with `python`. Download for your platform from [here](https://www.python.org/downloads/). Once `pip` is installed, run the following commands to setup the backend:
 
 ```
 $ cd api
-$ python3 -m venv venv
-$ . venv/bin/activate
 $ pip install -r requirements.txt
-```
-
-**On Windows:**
-
-```
-> cd api
-> py -3 -m venv venv
-> venv\Scripts\activate
-> pip install -r requirements.txt
 ```
 
 ### **Install Frontend Dependencies**
 
-This app uses `npm` to manage frontend dependencies. Run the following command to setup the frontend:
+This app uses `npm` to manage frontend dependencies. Download for your platform from [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Once `npm` is installed, run the following command to setup the frontend:
 
 ```
 $ npm i
 ```
 
-## **Available Scripts**
+## **Running the App**
 
-To start the app, run the following commands in the project directory:
+To start the app, run the following commands in the project directory in two separate terminal windows:
 
 ### `npm run start-api` 
-
-**On Windows:**
-
-### `npm run start-api-win`
 
 > Runs the backend.\
 > Connects to PRAW and serves data to the frontend.
