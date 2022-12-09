@@ -62,6 +62,7 @@ def get_top_today():
                     'id': submission.id,
                     'title': submission.title,
                     'author': submission.author.name,
+                    'upvotes': submission.score,
                     'createdUTC': submission.created_utc,
                     'imageURL': submission.url
                 })
@@ -96,6 +97,7 @@ def search():
                     'id': submission.id,
                     'title': submission.title,
                     'author': submission.author.name,
+                    'upvotes': submission.score,
                     'createdUTC': submission.created_utc,
                     'imageURL': submission.url,
                     'score': score,

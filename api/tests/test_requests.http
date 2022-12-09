@@ -1,17 +1,17 @@
 # GET subreddit name
-# GET http://127.0.0.1:5000/api/gettopweekly HTTP/1.1
-# content-type: application/json
+GET http://127.0.0.1:5000/api/gettopweekly HTTP/1.1
+content-type: application/json
 
 # POST http://127.0.0.1:5000/api/search HTTP/1.1
 # content-type: application/json
 
 # {
-#     "search_term": "Pasta"
+#     "search_term": "chicken"
 # }
 
-POST http://127.0.0.1:5000/api/getrecipe HTTP/1.1
-content-type: application/json
+# POST http://127.0.0.1:5000/api/getrecipe HTTP/1.1
+# content-type: application/json
 
-{
-    "submission_id": "k3x0th"
-}
+# {
+#     "submission_id": "k3x0th"
+# }
