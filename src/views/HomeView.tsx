@@ -11,7 +11,7 @@ export interface RecipeListItem {
   id: number;
   title: string;
   author: string;
-  createdUTC: string;
+  createdUTC: number;
   imageURL: string;
 }
 
@@ -27,9 +27,11 @@ const HomeView = () => {
   const [errorFlag, setErrorFlag] = useState<boolean>(false);
 
   useEffect(() => {
-    getTopRecipesToday();
+    if (searchText === "") {
+      getTopRecipesToday();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchText]);
 
   const getTopRecipesToday = () => {
     const requestOptions = {
@@ -37,7 +39,7 @@ const HomeView = () => {
       headers: { "Content-Type": "application/json" },
     };
 
-    fetch("/api/gettoptoday", requestOptions)
+    fetch("/api/gettopweekly", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         clearFlags();
@@ -97,6 +99,14 @@ const HomeView = () => {
     // Navigate to recipe detail view
   };
 
+  const searchInputKeyPressed = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      if (searchText !== "") {
+        getSearchResults();
+      }
+    }
+  };
+
   return (
     <div className="landing">
       <div className="landing__title-container">
@@ -115,6 +125,7 @@ const HomeView = () => {
           placeholder="Search"
           value={searchText}
           onChange={(event) => setSearchText(event.currentTarget.value)}
+          onKeyDown={searchInputKeyPressed}
           icon={<IconSearch size="20px" />}
           autoComplete="off"
         />
